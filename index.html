@@ -1,0 +1,213 @@
+<html>
+<head>
+<title>Currency Converter | Tech Maniac</title>
+
+ 
+<link rel="shortcut icon" href="favicon.png" type="image/x-icon">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="title" content="Currency Converter | Tech Maniac ">
+<meta name="description" content="Currency Converter | INR - USD | USD - NOK">
+<meta name="keywords" content="Currency Converter, INR to NOK, Convert Rupee">
+<meta name="robots" content="index, follow">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="language" content="English">
+<meta name="author" content="Tech Maniac ">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/uikit@3.4.2/dist/css/uikit.min.css" />
+
+<script src="https://cdn.jsdelivr.net/npm/uikit@3.4.2/dist/js/uikit.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/uikit@3.4.2/dist/js/uikit-icons.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.0/jquery.min.js"></script>
+<link rel="stylesheet" href="./css/style.css" />
+<script async defer src="https://buttons.github.io/buttons.js"></script>
+</head>
+<body>
+<div class="bg"></div>
+
+<div class="text middle " data-text="Currency Converter | Tech Maniac">
+  Currency Converter | Tech Maniac
+</div>
+    <div class="cont">
+           <br>
+          <form onsubmit="return false;">
+            
+
+            <div id='TextBoxesGroup'>
+              <div id="TextBoxDiv1">
+                <div class="uk-form-controls"><br>
+                
+                  <label class="uk-form-label">From - </label>
+                  <select class="uk-select iphonebug iphonesize" onclick="calculate();" required id="from">
+
+                      <option value="AUD">Australia Dollar</option>
+                      
+											<option value="BRL">Brazil Real</option>
+										
+											<option value="CAD">Canada Dollar</option>
+
+                      <option value="HRK">Croatian Kuna</option>
+																													
+											<option value="CNY">China Yuan Renminbi</option>
+										
+											<option value="CZK">Czech Republic Koruna</option>
+										
+											<option value="DKK">Denmark Krone</option>
+										
+											<option value="EUR">Euro</option>
+																													
+                      <option value="HKD">Hong Kong Dollar</option>
+										
+											<option value="HUF">Hungary Forint</option>
+										
+											<option value="ISK">Iceland Krona</option>
+										
+											<option value="INR">India Rupee</option>
+										
+											<option value="IDR">Indonesia Rupiah</option>
+										
+											<option value="ILS">Israel Shekel</option>
+										
+											<option value="JPY">Japan Yen</option>
+										
+											<option value="KRW">Korea (South) Won</option>
+										
+											<option value="MYR">Malaysia Ringgit</option>
+										
+											<option value="MXN">Mexico Peso</option>
+										
+											<option value="NZD">New Zealand Dollar</option>
+										
+											<option selected value="NOK">Norway Krone</option>
+																	
+											<option value="PHP">Philippines Peso</option>
+										
+											<option value="PLN">Poland Zloty</option>
+										
+											<option value="RUB">Russia Ruble</option>
+										
+											<option value="SGD">Singapore Dollar</option>
+										
+											<option value="ZAR">South Africa Rand</option>
+										
+											<option value="SEK">Sweden Krona</option>
+										
+											<option value="CHF">Switzerland Franc</option>
+																															
+											<option value="THB">Thailand Baht</option>
+										
+											<option value="TRY">Turkey Lira</option>
+										
+											<option value="GBP">United Kingdom Pound</option>
+										
+											<option value="USD">United States Dollar</option>
+										                    </select> 
+                      &nbsp; &nbsp; &nbsp; 
+                      <label class="uk-form-label">To - </label>
+                   <select class="uk-select iphonebug iphonesize" onclick="calculate();" required id="to">
+                   
+                    <option value="AUD">Australia Dollar</option>
+                      
+											<option value="BRL">Brazil Real</option>
+										
+											<option value="CAD">Canada Dollar</option>
+
+                      <option value="HRK">Croatian Kuna</option>
+																													
+											<option value="CNY">China Yuan Renminbi</option>
+										
+											<option value="CZK">Czech Republic Koruna</option>
+										
+											<option value="DKK">Denmark Krone</option>
+										
+											<option value="EUR">Euro</option>
+																													
+                      <option value="HKD">Hong Kong Dollar</option>
+										
+											<option value="HUF">Hungary Forint</option>
+										
+											<option value="ISK">Iceland Krona</option>
+										
+											<option selected value="INR">India Rupee</option>
+										
+											<option value="IDR">Indonesia Rupiah</option>
+										
+											<option value="ILS">Israel Shekel</option>
+										
+											<option value="JPY">Japan Yen</option>
+										
+											<option value="KRW">Korea (South) Won</option>
+										
+											<option value="MYR">Malaysia Ringgit</option>
+										
+											<option value="MXN">Mexico Peso</option>
+										
+											<option value="NZD">New Zealand Dollar</option>
+										
+											<option value="NOK">Norway Krone</option>
+																	
+											<option value="PHP">Philippines Peso</option>
+										
+											<option value="PLN">Poland Zloty</option>
+										
+											<option value="RUB">Russia Ruble</option>
+										
+											<option value="SGD">Singapore Dollar</option>
+										
+											<option value="ZAR">South Africa Rand</option>
+										
+											<option value="SEK">Sweden Krona</option>
+										
+											<option value="CHF">Switzerland Franc</option>
+																															
+											<option value="THB">Thailand Baht</option>
+										
+											<option value="TRY">Turkey Lira</option>
+										
+											<option value="GBP">United Kingdom Pound</option>
+										
+											<option value="USD">United States Dollar</option>
+                                        </select>
+
+              <br>
+           
+        </div>
+      </div>
+    </div>
+    <br>
+    <div class="uk-margin">
+              <input id="output"  class="uk-input uk-form-danger uk-form-width-medium" type="text" placeholder="" value="">
+          </div>
+
+  </form>  <br>
+  <iframe src="https://open.spotify.com/embed/playlist/3ysTY0iszVcOvZvzLvS4Ef" width="300" height="80" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>
+           <br> <br> <br><br>
+           <a class="github-button" href="https://github.com/monish-1234/Currency-Converter" data-color-scheme="no-preference: dark; light: light; dark: dark;" data-size="large" aria-label="Github Repo Link">Open Sourced on Github</a>
+            
+           <br>
+        <script>
+         
+
+          async function calculate() {
+
+          var from = document.getElementById("from").value
+          var to = document.getElementById("to").value
+          const api_url = 'https://api.exchangeratesapi.io/latest?symbols='+to+'&base='+from;
+
+          const response = await fetch(api_url);
+          const data = await response.json();
+          console.log(data);
+          var too = data['rates'][to].toFixed(3);
+          console.log(data['rates'][to]);
+          document.getElementById("output").value="1 "+from+" = "+too+" "+to;
+
+          }
+                    calculate();
+        </script>
+        <br> By Using these services you agree to our<a href="https://proxy.techmaniac.in/terms.html"> <u><i>Terms and Conditions</i></u> </a> and <a href="https://proxy.techmaniac.in/privacy.html" > <u><i>Privacy Policy</i></u> </a>
+           <br>Designed with ❤️ By <a href="https://techmaniac.in"> Tech Maniac</a>
+
+
+    </div>
+
+</body>
+</html>
