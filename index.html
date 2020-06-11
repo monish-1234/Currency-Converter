@@ -177,14 +177,15 @@
         </div>
       </div>
     </div>
-    <br>
+    
     <div class="uk-margin">
-              <input id="output" readonly class="uk-input uk-form-danger uk-form-width-medium" type="text" placeholder="" value="">
+			  <input id="output" readonly class="uk-input uk-form-danger uk-form-width-medium" type="text" placeholder="" value="">
+			  <div id="updt">Last Updated - </div>
           </div>
-<br><br>
+<br>
 <div class="uk-margin">
 	<input id="amt" oninput="calculate();"  class="uk-input uk-form-success uk-form-width-medium" type="number" placeholder="" value="">
-	<input id="convt" readonly class="uk-input uk-form-danger uk-form-width-medium" type="text" placeholder="" value="">
+	<input id="convt" readonly class="uk-input uk-form-success uk-form-width-medium" type="text" placeholder="" value="">
 
 </div>
   </form>  <br>
@@ -214,14 +215,13 @@
 
           const response = await fetch(api_url);
           const data = await response.json();
-          console.log(data);
-          var too = data['rates'][to].toFixed(3);
-          console.log(data['rates'][to]);
+		  var updt = data.date;
+		  var too = data['rates'][to].toFixed(3);
 		  document.getElementById("output").value="1 "+from+" = "+too+" "+to;
 		  document.getElementById("amt").placeholder="Enter "+from+" Amount";
 		  var convt = amt*too;
 		  document.getElementById("convt").value=convt.toFixed(3)+" "+to;
-
+		  document.getElementById('updt').innerHTML="Last Updated - "+updt;
           }
                     calculate();
         </script>
