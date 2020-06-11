@@ -31,6 +31,7 @@
            <br>
           <form onsubmit="return false;">
             
+			<div class="uk-margin">
 
             <div id='TextBoxesGroup'>
               <div id="TextBoxDiv1">
@@ -166,18 +167,26 @@
 											<option value="GBP">United Kingdom Pound</option>
 										
 											<option value="USD">United States Dollar</option>
-                                        </select>
+										</select>
+										<br><br>
+										<button class="uk-button uk-button-secondary uk-button-small iphonebug iphonesize" onclick="exchange()">Switch</button>
+                						</div>
 
-              <br>
-           
+
+			  <br>
         </div>
       </div>
     </div>
     <br>
     <div class="uk-margin">
-              <input id="output"  class="uk-input uk-form-danger uk-form-width-medium" type="text" placeholder="" value="">
+              <input id="output" readonly class="uk-input uk-form-danger uk-form-width-medium" type="text" placeholder="" value="">
           </div>
+<br><br>
+<div class="uk-margin">
+	<input id="amt" oninput="calculate();"  class="uk-input uk-form-success uk-form-width-medium" type="number" placeholder="" value="">
+	<input id="convt" readonly class="uk-input uk-form-danger uk-form-width-medium" type="text" placeholder="" value="">
 
+</div>
   </form>  <br>
   <iframe src="https://open.spotify.com/embed/playlist/3ysTY0iszVcOvZvzLvS4Ef" width="300" height="80" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>
            <br> <br> <br><br>
@@ -185,12 +194,22 @@
             
            <br>
         <script>
-         
+		 
+		 function exchange(){
+		
+			var temp = document.getElementById("from").value;
+			document.getElementById("from").value = document.getElementById("to").value;
+			document.getElementById("to").value = temp;
+			calculate();
+
+		 }
 
           async function calculate() {
 
-          var from = document.getElementById("from").value
-          var to = document.getElementById("to").value
+          var from = document.getElementById("from").value;
+		  var to = document.getElementById("to").value;
+		  var amt = document.getElementById("amt").value;
+		  
           const api_url = 'https://api.exchangeratesapi.io/latest?symbols='+to+'&base='+from;
 
           const response = await fetch(api_url);
@@ -198,7 +217,10 @@
           console.log(data);
           var too = data['rates'][to].toFixed(3);
           console.log(data['rates'][to]);
-          document.getElementById("output").value="1 "+from+" = "+too+" "+to;
+		  document.getElementById("output").value="1 "+from+" = "+too+" "+to;
+		  document.getElementById("amt").placeholder="Enter "+from+" Amount";
+		  var convt = amt*too;
+		  document.getElementById("convt").value=convt.toFixed(3)+" "+to;
 
           }
                     calculate();
